@@ -3,7 +3,7 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = import inputs.systems;
       perSystem = {pkgs, ...}: {
-        packages.firefox-esr-128-unwrapped = pkgs.firefox-esr-128-unwrapped.overrideAttrs (old: {
+        packages.default = pkgs.firefox-esr-128-unwrapped.overrideAttrs (old: {
           patches = old.patches ++ [./dont_reserve_keys.patch];
         });
       };
